@@ -71,14 +71,10 @@ else:
 
 SAVE_DIRECTORY = 'game_stats/'
 
-def makedir(dir):
-    try:
-        os.mkdir(dir)
-    except:
-        print(f"The directory '{dir}' already exists - Continuing extraction")
-
-makedir(SAVE_DIRECTORY)
-makedir('parsed_pages/')
+if not os.path.exists(SAVE_DIRECTORY):
+    os.mkdir(SAVE_DIRECTORY)
+if not os.path.exists('parsed_pages/'):
+    os.mkdir('parsed_pages/')
 
 print('		---RUNNING INITIALIZATION FOR TEAM DATA EXTRACTION---		')
 print('Requesting URL for Team Data...')
